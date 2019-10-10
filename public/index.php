@@ -12,7 +12,7 @@ require '../vendor/autoload.php';
 
 $app = new \Slim\App;
 
-//middleware
+//middleware 统配路由
 //$app->add(function ($request, $response, $next){
 //    $response->getBody()->write('BEFORE ');
 //    $response = $next($request, $response); //下一层中间件
@@ -20,18 +20,18 @@ $app = new \Slim\App;
 //    $response->getBody()->write(' the next do');
 //    return $response;
 //});
-
+//带变量路由
 $app->get('/hello/{name}', function (Request $request, Response $response) {
     $name = $request->getAttribute('name');
     $response->getBody()->write("Hello, $name");
     return $response;
 });
-
+//主域路由
 $app->get('/', function () {
     return 'fake';
 });
-
-$app->group('/utils', function () use ($app) {  //路由组下课分配多个子级路由
+//路由组下课分配多个子级路由
+$app->group('/utils', function () use ($app) {
     $app->get('/date', function ($request, $response) {
         return $response->getBody()->write(date('Y-m-d H:i:s'));
     });
