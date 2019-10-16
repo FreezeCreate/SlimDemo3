@@ -83,4 +83,22 @@ $app->get('/lang[/{name}[/{age}]]', function ($request, $response, $args){
     return json_encode(['data' => 'Default']);
 });
 
+//数目不确定的可选参数 http://slim3.cc/download/1879/06/23
+$app->get('/download[/{params:.*}]', function($request, $response, $args){
+    $params = explode('/', $request->getAttribute('params'));
+    return json_encode($params);
+});
+
+//正则表达式匹,只有符合规则才会启动路由 http://slim3.cc/lib/90
+$app->get('/lib/{id:[0-9]+}', function ($request, $response, $args){
+    return json_encode($args);
+});
+
+//$app->get('/luck/{name}', function ($request, $response ,$args){
+//    echo "hello," . $args['name'];
+//})->setName('hello');
+//echo $app->router->pathFor('luck', [
+//    'name' => 'Rank',
+//]);
+
 $app->run();
