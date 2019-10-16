@@ -60,10 +60,16 @@ function readBook()
 }
 
 //自定义路由
-$app->map(['GET', 'POST'], '/brahms/{param}', function ($request, $response, $args){    //匹配GET/POST的方式
-    return json_encode(['Brahms' => $args]);
+$app->map(['GET', 'POST'], '/brahms/{param}/{some}', function ($request, $response, $args){    //匹配GET/POST的方式
+    return json_encode(['Brahms' => $args['param'], 'Mozart' => $args['some']]);
 });
 
-
+//可选路由
+$app->get('/grieg[/{do}]', function ($request, $response, $args){
+    if (!empty($args['do'])){
+        return json_encode(['Grieg' => $args['do']]);
+    }
+    return json_encode(['Grieg' => 'Default']);
+});
 
 $app->run();
