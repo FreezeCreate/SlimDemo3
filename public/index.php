@@ -59,17 +59,28 @@ function readBook()
     return json_encode(['my_name' => 'Freeze']);
 }
 
-//自定义路由
+//自定义路由 http://slim3.cc/brahms/read/book
 $app->map(['GET', 'POST'], '/brahms/{param}/{some}', function ($request, $response, $args){    //匹配GET/POST的方式
     return json_encode(['Brahms' => $args['param'], 'Mozart' => $args['some']]);
 });
 
-//可选路由
+//可选路由 http://slim3.cc/grieg/read
 $app->get('/grieg[/{do}]', function ($request, $response, $args){
     if (!empty($args['do'])){
         return json_encode(['Grieg' => $args['do']]);
     }
     return json_encode(['Grieg' => 'Default']);
+});
+
+//多个可选参数 http://slim3.cc/lang/Lnaglang/34
+$app->get('/lang[/{name}[/{age}]]', function ($request, $response, $args){
+    if (!empty($args['name'])){
+        if (!empty($args['age'])){
+            return json_encode(['name' => $args['name'], 'age' => $args['age']]);
+        }
+        return json_encode(['name' => $args['name']]);
+    }
+    return json_encode(['data' => 'Default']);
 });
 
 $app->run();
