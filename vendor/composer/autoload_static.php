@@ -15,6 +15,10 @@ class ComposerStaticInit5ce6823ea5abc6a8647ad1903217be6a
         array (
             'Slim\\' => 5,
         ),
+        'R' => 
+        array (
+            'RKA\\Middleware\\' => 15,
+        ),
         'P' => 
         array (
             'Psr\\Http\\Message\\' => 17,
@@ -34,6 +38,10 @@ class ComposerStaticInit5ce6823ea5abc6a8647ad1903217be6a
         'Slim\\' => 
         array (
             0 => __DIR__ . '/..' . '/slim/slim/Slim',
+        ),
+        'RKA\\Middleware\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/akrabat/rka-ip-address-middleware/src',
         ),
         'Psr\\Http\\Message\\' => 
         array (

@@ -26,6 +26,7 @@ $c['errorHandler'] = function ($c) {    //错误处理
             ->write('Something went wrong!');
     };
 };
+
 $app = new \Slim\App($c);
 
 //unset($app->getContainer()['errorHandler']);  //禁用slim的错误注解器
@@ -38,6 +39,26 @@ $app = new \Slim\App($c);
 //    return $response;
 //});
 
+$app->add(function (Request $request, Response $response, callable $next) {
+    $uri = $request->getUri();
+    $path = $uri->getPath();
+    if ($path != '/' && substr($path, -1) == '/') { //url / 优化
+        $uri = $uri->withPath(substr($path, 0, -1));
+        return $response->withRedirect((string)$uri, 301);
+    }
+    return $next($request, $response);
+});
+
+$checkProxyHeaders = true;
+$trustedProxies = ['10.0.0.1', '10.0.0.2'];
+$app->add(new RKA\Middleware\IpAddress($checkProxyHeaders, $trustedProxies));   //注册中间件为每个路由提供ip_address
+
+$app->get('/', function ($request, $response, $args) {  //使用三方中间件获取客户端ip
+    $ipAddress = $request->getAttribute('ip_address');
+    var_dump($ipAddress);die;
+    return $response;
+});
+
 //带变量路由
 $app->get('/hello/{name}', function (Request $request, Response $response) {
     $name = $request->getAttribute('name');
@@ -46,9 +67,9 @@ $app->get('/hello/{name}', function (Request $request, Response $response) {
 });
 
 //主域路由
-$app->get('/', function () {
-    return 'fake';
-});
+//$app->get('/', function () {
+//    return 'fake';
+//});
 
 //路由组下课分配多个子级路由
 $app->group('/utils', function () use ($app) {
