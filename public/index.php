@@ -110,4 +110,78 @@ $app->get('/luck/{name}', function ($request, $response ,$args){
 //http://slim3.cc/method1/asd
 $app->get('/method1/{read}', '\MyController:method1');
 
+//uri信息
+$app->get('/url', function($request, $response, $args){
+    $uri = $request->getUri();
+    echo $uri.'<br>';
+    echo $uri->getScheme().'<br>';
+    echo $uri->getAuthority().'<br>';
+    echo $uri->getUserInfo().'<br>';
+    echo $uri->getHost().'<br>';
+    echo $uri->getPort().'<br>';
+    echo $uri->getPath().'<br>';
+    echo $uri->getBasePath().'<br>';
+    echo $uri->getQuery().'<br>';
+    echo $uri->getFragment().'<br>';
+    echo $uri->getBaseUrl().'<br>';
+});
+
+//获取所有请求头信息
+$app->get('/getUri', function ($request, $response, $args){
+    $headers = $request->getHeaders();
+//    $headerValueArray = $request->getHeader('Accept');  //获取单个请求头
+//    $headerValueString = $request->getHeaderLine('Accept'); //获取单个请求头的值，返回逗号分隔的字符串
+//    echo $headerValueString;die;
+    if ($request->hasHeader('Accept')){ //检测请求头
+        return json_encode($headers);
+    }
+});
+
+//获取 HTTP 请求体,详见slim文档
+$app->get('/frank/{rank}', function ($request, $response, $args){
+    $body = $request->getBody();
+    var_dump($body->isSeekable());die;
+});
+
+//检测xhr请求
+$app->get('/xhr/{name}', function ($request, $response, $args){
+    if ($request->isXhr()){
+        echo 'xhr'.'<br>';
+    }elseif ($request->isGet()){
+        echo 'get'.'<br>';
+    }
+//    $contentType = $request->getContentCharset();
+//    var_dump($contentType);die;
+});
+
+//获取HTTP响应
+$app->get('/res', function ($request, $response, $args){
+//    $status = $response->getStatusCode();
+//    $newResponse = $response->withStatus(302);
+//    echo $status.'<br>';
+//    echo $newResponse.'<br>';
+//
+//    $headers = $response->getHeaders(); //获取所有响应头
+//    foreach ($headers as $name => $values) {
+//        echo $name . ": " . implode(", ", $values).'<br>';
+//    }
+//    $headerValueArray = $response->getHeader('Vary');   //获取单个响应头
+//    var_dump($headerValueArray);
+//    if ($response->hasHeader('Vary')) { //检测响应头
+//        // Do something
+//    }
+//    echo '<br>';
+//    $newResponse = $response->withHeader('Content-type', 'application/json');    //设置响应头
+//    echo $newResponse->getHeader('Content-type')[0];    //获取新的响应头
+//    $newResponse->withAddedHeader('Allow', 'PUT');   //追加响应头，且不可修改此头内容
+//    $newResponse->withoutHeader('Allow');   //移除响应头
+//
+//    $body = $response->getBody();
+//    $body->write('Hello');
+
+    $data = array('name' => 'Bob', 'age' => 40);
+    $newResponse = $response->withJson($data, 200); //可以追加状态码
+    return $newResponse;
+});
+
 $app->run();
