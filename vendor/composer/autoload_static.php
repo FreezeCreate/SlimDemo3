@@ -63,12 +63,17 @@ class ComposerStaticInit5ce6823ea5abc6a8647ad1903217be6a
         ),
     );
 
+    public static $classMap = array (
+        'MyController' => __DIR__ . '/../..' . '/app/controllers/MyController.php',
+    );
+
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit5ce6823ea5abc6a8647ad1903217be6a::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit5ce6823ea5abc6a8647ad1903217be6a::$prefixDirsPsr4;
             $loader->prefixesPsr0 = ComposerStaticInit5ce6823ea5abc6a8647ad1903217be6a::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit5ce6823ea5abc6a8647ad1903217be6a::$classMap;
 
         }, null, ClassLoader::class);
     }

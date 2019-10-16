@@ -94,11 +94,20 @@ $app->get('/lib/{id:[0-9]+}', function ($request, $response, $args){
     return json_encode($args);
 });
 
-//$app->get('/luck/{name}', function ($request, $response ,$args){
-//    echo "hello," . $args['name'];
-//})->setName('hello');
+$app->get('/luck/{name}', function ($request, $response ,$args){
+    echo "hello," . $args['name'];
+})->setName('hello');
 //echo $app->router->pathFor('luck', [
 //    'name' => 'Rank',
 //]);
+
+//使用控制器 需在composer.json里指定控制器的位置"autoload": {
+//        "classmap" : [
+//            "app/controllers"
+//        ]
+//    }
+//composer install即可
+//http://slim3.cc/method1/asd
+$app->get('/method1/{read}', '\MyController:method1');
 
 $app->run();
