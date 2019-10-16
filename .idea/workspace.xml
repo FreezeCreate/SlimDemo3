@@ -19,10 +19,40 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="821">
-              <caret line="182" column="28" selection-start-line="182" selection-start-column="28" selection-end-line="182" selection-end-column="28" />
+            <state relative-caret-position="248">
+              <caret line="21" column="62" selection-start-line="21" selection-start-column="62" selection-end-line="21" selection-end-column="62" />
               <folding>
-                <element signature="e#87#143#0#PHP" expanded="true" />
+                <element signature="e#560#754#0#PHP" />
+                <element signature="e#587#753#1#PHP" />
+                <element signature="e#831#1125#0#PHP" />
+                <element signature="e#853#1124#1#PHP" />
+                <element signature="e#882#1005#0#PHP" />
+                <element signature="e#901#1004#1#PHP" />
+                <element signature="e#1011#1121#0#PHP" />
+                <element signature="e#1030#1120#1#PHP" />
+                <element signature="e#831#1362#0#PHP" />
+                <element signature="e#1131#1361#2#PHP" />
+                <element signature="e#1364#1411#0#PHP" />
+                <element signature="e#1391#1508#1#PHP" />
+                <element signature="n#readBook#0;n#!!top" />
+                <element signature="e#1656#1740#0#PHP" />
+                <element signature="e#1702#1794#1#PHP" />
+                <element signature="e#2798#2839#1#PHP" />
+                <element signature="e#2896#2998#0#PHP" />
+                <element signature="e#2922#3002#1#PHP" />
+                <element signature="e#3088#3133#0#PHP" />
+                <element signature="e#3336#3785#1#PHP" />
+                <element signature="e#3825#3870#1#PHP" />
+                <element signature="e#4096#4149#0#PHP" />
+                <element signature="e#4189#4255#0#PHP" />
+                <element signature="e#4209#4254#1#PHP" />
+                <element signature="e#4355#4416#0#PHP" />
+                <element signature="e#4373#4415#1#PHP" />
+                <element signature="e#4416#4455#0#PHP" />
+                <element signature="e#4464#4506#0#PHP" />
+                <element signature="e#4641#4702#0#PHP" />
+                <element signature="e#4659#4838#1#PHP" />
+                <element signature="e#4709#4752#0#PHP" />
               </folding>
             </state>
           </provider>
@@ -31,8 +61,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/composer.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="155">
-              <caret line="5" column="18" lean-forward="true" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+            <state relative-caret-position="93">
+              <caret line="3" column="5" lean-forward="true" selection-start-line="3" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -54,6 +84,8 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>read</find>
+      <find>displayErrorDetails</find>
+      <find>src</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -67,8 +99,9 @@
         <option value="$PROJECT_DIR$/public/MyRead.php" />
         <option value="$PROJECT_DIR$/app/controller/MyController.php" />
         <option value="$PROJECT_DIR$/app/Controllers/MyController.php" />
-        <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/app/controllers/MyController.php" />
+        <option value="$PROJECT_DIR$/src/settings.php" />
+        <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/public/index.php" />
       </list>
     </option>
@@ -143,11 +176,6 @@
               <item name="slim3" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="slim3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="slim3" type="462c0819:PsiDirectoryNode" />
-              <item name="vendor" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -168,6 +196,7 @@
       <recent name="D:\WWW\slim3" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\WWW\slim3" />
       <recent name="D:\WWW\slim3\app\controller" />
       <recent name="D:\WWW\slim3\public" />
     </key>
@@ -206,12 +235,12 @@
       <workItem from="1570843865448" duration="574000" />
       <workItem from="1571015223644" duration="569000" />
       <workItem from="1571101659289" duration="799000" />
-      <workItem from="1571189060387" duration="10470000" />
+      <workItem from="1571189060387" duration="12034000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15813000" />
+    <option name="totallyTimeSpent" value="17377000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -322,13 +351,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="5" column="18" lean-forward="true" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/MyController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="403">
@@ -353,12 +375,73 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/Desktop/github/slim3test/src/settings.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="3" column="28" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/settings.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="496">
+          <caret line="16" column="10" lean-forward="true" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/github/slim3test/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="3" column="57" selection-start-line="3" selection-start-column="57" selection-end-line="3" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="3" column="5" lean-forward="true" selection-start-line="3" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="821">
-          <caret line="182" column="28" selection-start-line="182" selection-start-column="28" selection-end-line="182" selection-end-column="28" />
+        <state relative-caret-position="248">
+          <caret line="21" column="62" selection-start-line="21" selection-start-column="62" selection-end-line="21" selection-end-column="62" />
           <folding>
-            <element signature="e#87#143#0#PHP" expanded="true" />
+            <element signature="e#560#754#0#PHP" />
+            <element signature="e#587#753#1#PHP" />
+            <element signature="e#831#1125#0#PHP" />
+            <element signature="e#853#1124#1#PHP" />
+            <element signature="e#882#1005#0#PHP" />
+            <element signature="e#901#1004#1#PHP" />
+            <element signature="e#1011#1121#0#PHP" />
+            <element signature="e#1030#1120#1#PHP" />
+            <element signature="e#831#1362#0#PHP" />
+            <element signature="e#1131#1361#2#PHP" />
+            <element signature="e#1364#1411#0#PHP" />
+            <element signature="e#1391#1508#1#PHP" />
+            <element signature="n#readBook#0;n#!!top" />
+            <element signature="e#1656#1740#0#PHP" />
+            <element signature="e#1702#1794#1#PHP" />
+            <element signature="e#2798#2839#1#PHP" />
+            <element signature="e#2896#2998#0#PHP" />
+            <element signature="e#2922#3002#1#PHP" />
+            <element signature="e#3088#3133#0#PHP" />
+            <element signature="e#3336#3785#1#PHP" />
+            <element signature="e#3825#3870#1#PHP" />
+            <element signature="e#4096#4149#0#PHP" />
+            <element signature="e#4189#4255#0#PHP" />
+            <element signature="e#4209#4254#1#PHP" />
+            <element signature="e#4355#4416#0#PHP" />
+            <element signature="e#4373#4415#1#PHP" />
+            <element signature="e#4416#4455#0#PHP" />
+            <element signature="e#4464#4506#0#PHP" />
+            <element signature="e#4641#4702#0#PHP" />
+            <element signature="e#4659#4838#1#PHP" />
+            <element signature="e#4709#4752#0#PHP" />
           </folding>
         </state>
       </provider>

@@ -11,7 +11,15 @@ use \Psr\Http\Message\ResponseInterface as Response;
 require '../vendor/autoload.php';
 
 $app = new \Slim\App;
-
+$c = $app->getContainer();
+$c['errorHandler'] = function ($c) {
+    return function ($request, $response, $exception) use ($c) {
+        return $c['response']->withStatus(500)
+            ->withHeader('Content-Type', 'text/html')
+            ->write('Something went wrong!');
+    };
+};
+//unset($app->getContainer()['errorHandler']);  //禁用slim的错误注解器
 //middleware 统配路由
 //$app->add(function ($request, $response, $next){
 //    $response->getBody()->write('BEFORE ');
