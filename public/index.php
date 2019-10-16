@@ -10,15 +10,24 @@ use \Psr\Http\Message\ResponseInterface as Response;
 
 require '../vendor/autoload.php';
 
-$app = new \Slim\App;
-$c = $app->getContainer();
-$c['errorHandler'] = function ($c) {
+$c = new \Slim\Container();
+$c['notFoundHandler'] = function ($c) { //404处理
+    return function ($request, $response) use ($c) {
+        return $c['response']
+            ->withStatus(404)
+            ->withHeader('Content-Type', 'text/html')
+            ->write('Page not found');
+    };
+};
+$c['errorHandler'] = function ($c) {    //错误处理
     return function ($request, $response, $exception) use ($c) {
         return $c['response']->withStatus(500)
             ->withHeader('Content-Type', 'text/html')
             ->write('Something went wrong!');
     };
 };
+$app = new \Slim\App($c);
+
 //unset($app->getContainer()['errorHandler']);  //禁用slim的错误注解器
 //middleware 统配路由
 //$app->add(function ($request, $response, $next){
