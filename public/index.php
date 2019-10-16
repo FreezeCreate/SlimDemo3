@@ -44,5 +44,14 @@ $app->group('/utils', function () use ($app) {
     $response->getBody()->write('. Enjoy!');
     return $response;
 });
+$app->any('/books/[{id}]', function ($request, $response, $args) {  //匹配所有类型的请求
+    // Create new book or list all books
+    return json_encode($args);
+});
+$app->any('/read', 'readBook');    //回调的方式
+function readBook()
+{
+    return json_encode(['my_name' => 'Freeze']);
+}
 
 $app->run();
