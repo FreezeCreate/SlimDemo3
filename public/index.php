@@ -20,16 +20,19 @@ $app = new \Slim\App;
 //    $response->getBody()->write(' the next do');
 //    return $response;
 //});
+
 //带变量路由
 $app->get('/hello/{name}', function (Request $request, Response $response) {
     $name = $request->getAttribute('name');
     $response->getBody()->write("Hello, $name");
     return $response;
 });
+
 //主域路由
 $app->get('/', function () {
     return 'fake';
 });
+
 //路由组下课分配多个子级路由
 $app->group('/utils', function () use ($app) {
     $app->get('/date', function ($request, $response) {
@@ -44,6 +47,8 @@ $app->group('/utils', function () use ($app) {
     $response->getBody()->write('. Enjoy!');
     return $response;
 });
+
+//匹配所有路由方式
 $app->any('/books/[{id}]', function ($request, $response, $args) {  //匹配所有类型的请求
     // Create new book or list all books
     return json_encode($args);
@@ -53,5 +58,12 @@ function readBook()
 {
     return json_encode(['my_name' => 'Freeze']);
 }
+
+//自定义路由
+$app->map(['GET', 'POST'], '/brahms/{param}', function ($request, $response, $args){    //匹配GET/POST的方式
+    return json_encode(['Brahms' => $args]);
+});
+
+
 
 $app->run();
