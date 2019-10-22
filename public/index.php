@@ -222,4 +222,23 @@ $app->get('/res', function ($request, $response, $args){
     return $newResponse;
 });
 
+$app->get('/test/db', function($request, $response, $args){
+    $capsule  = new \Illuminate\Database\Capsule\Manager();
+    $capsule->addConnection([
+        'driver'    => 'mysql',
+        'host'      => '127.0.0.1',
+        'database'  => 'four_six',
+        'username'  => 'root',
+        'password'  => 'root',
+        'charset'   => 'utf8',
+        'collation' => 'utf8_unicode_ci',
+        'prefix'    => '',
+    ]);
+    $capsule->setAsGlobal();
+    $conn = $capsule;
+//    echo "<h1>select（获取全部）, （获取行）没有, fetchColumn没有</h1>";
+    $users = $conn::select('SELECT * FROM x2_user limit 10');
+    return $response->withJson($users, 200);
+});
+
 $app->run();
