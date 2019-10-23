@@ -30,7 +30,7 @@ class MyController {
     public function getUser($request, $response, $args)
     {
         $capsule  = new \Illuminate\Database\Capsule\Manager();
-        $capsule->addConnection([
+        $capsule->addConnection([// 创建链接
             'driver'    => 'mysql',
             'host'      => '127.0.0.1',
             'database'  => 'four_six',
@@ -40,11 +40,13 @@ class MyController {
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
         ]);
-        $capsule->setAsGlobal();
-        $a = \Illuminate\Support\Facades\DB::table('x2_user')->select('id')->get();
-        var_dump($a);die;
+        $capsule->setAsGlobal();// 设置全局静态可访问
+        $capsule->bootEloquent();// 启动Eloquent
+        $user_all = UserModel::all();
+//        $a = \Illuminate\Support\Facades\DB::table('x2_user')->select('id')->get();
+//        var_dump($a);die;
 //        $conn  = $capsule;
 //        $users = $conn::select('SELECT * FROM x2_user limit 10');
-        return $response->withJson($users, 200);
+        return $response->withJson($user_all, 200);
     }
 }
