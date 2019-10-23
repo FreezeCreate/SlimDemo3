@@ -27,6 +27,15 @@ class MyController {
         //to access items in the container... $this->ci->get('');
     }
 
+    /**
+     * 获取用户信息
+     * @Author: Ferre
+     * @create: 2019/10/23 17:47
+     * @param $request
+     * @param $response
+     * @param $args
+     * @return mixed
+     */
     public function getUser($request, $response, $args)
     {
         $capsule  = new \Illuminate\Database\Capsule\Manager();
@@ -43,10 +52,11 @@ class MyController {
         $capsule->setAsGlobal();// 设置全局静态可访问
         $capsule->bootEloquent();// 启动Eloquent
         $user_all = UserModel::all();
+        $user_id  = $capsule::table('x2_user')->select('id')->get();
 //        $a = \Illuminate\Support\Facades\DB::table('x2_user')->select('id')->get();
-//        var_dump($a);die;
 //        $conn  = $capsule;
 //        $users = $conn::select('SELECT * FROM x2_user limit 10');
         return $response->withJson($user_all, 200);
+        return $response->withJson($user_id, 200);
     }
 }
