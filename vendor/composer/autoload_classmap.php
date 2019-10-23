@@ -7,4 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'MyController' => $baseDir . '/app/controllers/MyController.php',
+    'UserModel' => $baseDir . '/app/model/UserModel.php',
 );

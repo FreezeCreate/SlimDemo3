@@ -16,7 +16,7 @@ $c['notFoundHandler'] = function ($c) { //404处理
         return $c['response']
             ->withStatus(404)
             ->withHeader('Content-Type', 'text/html')
-            ->write('Page not found');
+            ->write('Page not found 404');
     };
 };
 $c['errorHandler'] = function ($c) {    //错误处理
@@ -27,9 +27,14 @@ $c['errorHandler'] = function ($c) {    //错误处理
     };
 };
 
-$app = new \Slim\App($c);
 
-//unset($app->getContainer()['errorHandler']);  //禁用slim的错误注解器
+$app = new \Slim\App($c);
+unset($app->getContainer()['errorHandler']);  //禁用slim的错误注解器
+//使用whoops库的错误提示
+$whoops = new \Whoops\Run;
+$whoops->prependHandler(new \Whoops\Handler\PrettyPageHandler);
+$whoops->register();
+
 //middleware 统配路由
 //$app->add(function ($request, $response, $next){
 //    $response->getBody()->write('BEFORE ');

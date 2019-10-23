@@ -14,6 +14,10 @@ class ComposerStaticInit5ce6823ea5abc6a8647ad1903217be6a
     );
 
     public static $prefixLengthsPsr4 = array (
+        'W' => 
+        array (
+            'Whoops\\' => 7,
+        ),
         'S' => 
         array (
             'Symfony\\Polyfill\\Mbstring\\' => 26,
@@ -26,6 +30,7 @@ class ComposerStaticInit5ce6823ea5abc6a8647ad1903217be6a
         ),
         'P' => 
         array (
+            'Psr\\Log\\' => 8,
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Container\\' => 14,
         ),
@@ -44,6 +49,10 @@ class ComposerStaticInit5ce6823ea5abc6a8647ad1903217be6a
     );
 
     public static $prefixDirsPsr4 = array (
+        'Whoops\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/filp/whoops/src/Whoops',
+        ),
         'Symfony\\Polyfill\\Mbstring\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
@@ -59,6 +68,10 @@ class ComposerStaticInit5ce6823ea5abc6a8647ad1903217be6a
         'RKA\\Middleware\\' => 
         array (
             0 => __DIR__ . '/..' . '/akrabat/rka-ip-address-middleware/src',
+        ),
+        'Psr\\Log\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
         ),
         'Psr\\Http\\Message\\' => 
         array (
@@ -124,6 +137,7 @@ class ComposerStaticInit5ce6823ea5abc6a8647ad1903217be6a
 
     public static $classMap = array (
         'MyController' => __DIR__ . '/../..' . '/app/controllers/MyController.php',
+        'UserModel' => __DIR__ . '/../..' . '/app/model/UserModel.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

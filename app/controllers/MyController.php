@@ -3,6 +3,7 @@ use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 use \interop\Container\ContainerInterface;
 
+
 class MyController {
     protected $ci;
     //Constructor
@@ -40,8 +41,10 @@ class MyController {
             'prefix'    => '',
         ]);
         $capsule->setAsGlobal();
-        $conn  = $capsule;
-        $users = $conn::select('SELECT * FROM x2_user limit 10');
+        $a = \Illuminate\Support\Facades\DB::table('x2_user')->select('id')->get();
+        var_dump($a);die;
+//        $conn  = $capsule;
+//        $users = $conn::select('SELECT * FROM x2_user limit 10');
         return $response->withJson($users, 200);
     }
 }
