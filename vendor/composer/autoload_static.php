@@ -136,6 +136,7 @@ class ComposerStaticInit5ce6823ea5abc6a8647ad1903217be6a
     );
 
     public static $classMap = array (
+        'BaseController' => __DIR__ . '/../..' . '/app/controllers/BaseController.php',
         'MyController' => __DIR__ . '/../..' . '/app/controllers/MyController.php',
         'UserModel' => __DIR__ . '/../..' . '/app/model/UserModel.php',
     );

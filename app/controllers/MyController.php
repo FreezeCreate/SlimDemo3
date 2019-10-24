@@ -4,11 +4,12 @@ use \Psr\Http\Message\ResponseInterface as Response;
 use \interop\Container\ContainerInterface;
 
 
-class MyController {
+class MyController extends BaseController {
     protected $ci;
     //Constructor
     public function __construct(ContainerInterface $ci) {
         $this->ci = $ci;
+        parent::__construct();
     }
 
     public function method1($request, $response, $args) {
@@ -38,20 +39,8 @@ class MyController {
      */
     public function getUser($request, $response, $args)
     {
-        $capsule  = new \Illuminate\Database\Capsule\Manager();
-        $capsule->addConnection([// 创建链接
-            'driver'    => 'mysql',
-            'host'      => '127.0.0.1',
-            'database'  => 'four_six',
-            'username'  => 'root',
-            'password'  => 'root',
-            'charset'   => 'utf8',
-            'collation' => 'utf8_unicode_ci',
-            'prefix'    => '',
-        ]);
-        $capsule->setAsGlobal();// 设置全局静态可访问
-        $capsule->bootEloquent();// 启动Eloquent
         $user_all = UserModel::all();
+        $capsule  = $this->capsule;
         $user_id  = $capsule::table('x2_user')->select('id')->get();
 //        $a = \Illuminate\Support\Facades\DB::table('x2_user')->select('id')->get();
 //        $conn  = $capsule;
