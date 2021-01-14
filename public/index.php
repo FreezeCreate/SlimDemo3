@@ -169,6 +169,10 @@ $app->get('/url', function($request, $response, $args){
     echo $uri->getBaseUrl().'<br>';
 });
 
+$app->get('/lgw', function ($request, $response, $args){
+
+});
+
 //获取所有请求头信息
 $app->get('/getUri', function ($request, $response, $args){
     $headers = $request->getHeaders();

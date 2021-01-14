@@ -1,0 +1,16 @@
+{
+  "name" : "freespider/alexa-img",
+  "description" : "PHP Library",
+  "license":"MIT",
+  "authors": [
+		{
+			"name": "FerreWagner",
+			"email": "1573646491@qq.com"
+		}
+	],
+  "require" : {
+    "php" : ">=5.3.0"
+  },
+  "keywords" : [ "FerreWagner", "PHP GD", "Image Detail"],
+  "type" : "Library"
+}
